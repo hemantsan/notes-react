@@ -19,6 +19,11 @@ class CardComponent extends Component {
     }
 
     save(e) {
+        var taskData = [];
+        taskData["id"] = this.props.id;
+        taskData["title"] = this.refs.txtTitle.value;
+        taskData["detail"] = this.refs.txtDetail.value;
+        this.props.handleSave(taskData);
         this.setState({
             isEditing: false
         });
@@ -32,7 +37,7 @@ class CardComponent extends Component {
     _renderStaticView() {
         return(
             <div className="col-md-4">
-                <div className="card mb-2">
+                <div className="card mb-2" id="card_{this.props.id}">
                     <div className="card-body">
                         <h4 className="card-title">{this.props.title}</h4>
                         <h6 className="card-subtitle mb-2 text-muted small">{this.props.datetime}</h6>
@@ -51,7 +56,8 @@ class CardComponent extends Component {
                 <div className="card mb-2">
                     <div className="card-body">
                         <label>Task title </label>
-                        <textarea className="form-control" defaultValue={this.props.title}></textarea>
+                        <input ref="txtTitle" type="text" className="form-control mb-1" defaultValue={this.props.title}/>
+                        <textarea ref="txtDetail" className="form-control" defaultValue={this.props.detail}></textarea>
                         <button type="button" className="card-link btn-success btn mt-3" onClick={this.save}>Save</button>
                     </div>
                 </div>

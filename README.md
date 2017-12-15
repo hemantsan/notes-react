@@ -1,3 +1,11 @@
+Notes App : 
+
+Please install below packages :
+
+1. Bootstrap : npm install --save bootstrap
+2. React Router : npm install -S react-router
+2. React History : npm install -S history@1
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
